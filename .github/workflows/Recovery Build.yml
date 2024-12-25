@@ -148,3 +148,49 @@ jobs:
         python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/vendor.qti.hardware.vibrator.service
         echo "Done checking missing dependencies. Review, and reconfigure your tree."
       continue-on-error: true
+
+    - name: Run LDCheck1
+      run: |
+        echo
+        mv -n libneeds ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/recovery/root/
+        mv -n ldcheck ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/recovery/root/
+        cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/${{ github.event.inputs.DEVICE_NAME }}/recovery/root
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/qseecomd
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.gatekeeper@1.0-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.keymaster@4.1-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.security.keymint-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/vendor.qti.hardware.qteeconnector@1.0-service
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/vendor.qti.hardware.vibrator.service
+        echo "Done checking missing dependencies. Review, and reconfigure your tree."
+      continue-on-error: true
+
+    - name: Run LDCheck2
+      run: |
+        echo 
+        mv -n libneeds ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/recovery/root/
+        mv -n ldcheck ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/recovery/root/
+        cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/recovery/root
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/qseecomd
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.gatekeeper@1.0-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.keymaster@4.1-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.security.keymint-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/vendor.qti.hardware.qteeconnector@1.0-service
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/vendor.qti.hardware.vibrator.service
+        echo "Done checking missing dependencies. Review, and reconfigure your tree."
+      continue-on-error: true
+
+    - name: Run LDCheck3
+      run: |
+        echo
+        mv -n libneeds ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/root/
+        mv -n ldcheck ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/root/
+        cd ${{ steps.pwd.outputs.workspace-folder }}/fox_${{ github.event.inputs.MANIFEST_BRANCH }}/out/target/product/root
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/qseecomd
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.gatekeeper@1.0-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.keymaster@4.1-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/android.hardware.security.keymint-service-qti
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/vendor.qti.hardware.qteeconnector@1.0-service
+        python3 ldcheck -p system/lib64:vendor/lib64:system/lib:vendor/lib -d system/bin/vendor.qti.hardware.vibrator.service
+        echo "Done checking missing dependencies. Review, and reconfigure your tree."
+      continue-on-error: true
+
